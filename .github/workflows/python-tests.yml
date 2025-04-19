@@ -18,13 +18,34 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest pylint numpy
+        pip install \
+          pytest \
+          pylint \
+          numpy \
+          pandas \
+          scikit-learn \
+          matplotlib \
+          seaborn \
+          streamlit \
+          rdkit-pypi \
+          tensorflow \
+          torch \
+          pennylane
+        # if you ever add a requirements.txt, this will pick it up:
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
     - name: Run Unit Tests
       run: |
-        if [ -f test_all_models.py ]; then python -m unittest test_all_models.py; else echo "Test file not found, skipping tests."; fi
+        if [ -f test_all_models.py ]; then
+          python -m unittest test_all_models.py
+        else
+          echo "Test file not found, skipping tests."
+        fi
 
     - name: Lint with pylint
       run: |
-        if [ -f app.py ]; then python -m pylint app.py; else echo "app.py not found, skipping lint."; fi
+        if [ -f app.py ]; then
+          python -m pylint app.py
+        else
+          echo "app.py not found, skipping lint."
+        fi
