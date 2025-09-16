@@ -1,6 +1,5 @@
 # AI-Powered Drug Discovery & Quantum Protein Folding
 
-**Short description**
 A drug-discovery proof-of-concept: featurizes SMILES strings, trains classical ML, deep-learning and quantum/hybrid models (PennyLane), and exposes a Streamlit UI to explore results.
 
 ## Contents
@@ -10,7 +9,7 @@ A drug-discovery proof-of-concept: featurizes SMILES strings, trains classical M
 * `dl_model.py` — simple neural network (TensorFlow / Keras)
 * `qml_model.py` / `qnn_model.py` — PennyLane quantum / hybrid models
 * `test_all_models.py` — basic unit tests
-* `mols_xx.jpg`, `assets/` — images used by the app
+* `mols_xx.jpg` — images used by the app
 
 ## Quick start
 
