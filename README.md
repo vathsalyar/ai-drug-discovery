@@ -1,52 +1,48 @@
 # AI-Powered Drug Discovery & Quantum Protein Folding
 
-This project applies **Machine Learning (ML), Deep Learning (DL), and Quantum Machine Learning (QML)** to drug discovery using chemical structures in **SMILES notation**.
+**Short description**
+A drug-discovery proof-of-concept: featurizes SMILES strings, trains classical ML, deep-learning and quantum/hybrid models (PennyLane), and exposes a Streamlit UI to explore results.
 
-## Features
-- Data preprocessing (`data_loader.py`)
-- ML, DL, and QML models (`ml_model.py`, `dl_model.py`, `qml_model.py`, `qnn_model.py`)
-- Unified testing (`test_all_models.py`)
-- Interactive app (`app.py`)
-- Dataset: [Big Molecules SMILES Dataset](https://www.kaggle.com/datasets/yanmaksi/big-molecules-smiles-dataset)
+## Contents
+* `app.py` — Streamlit application (UI)
+* `data_loader.py` — SMILES featurization using RDKit
+* `ml_model.py` — classical ML training (RandomForest)
+* `dl_model.py` — simple neural network (TensorFlow / Keras)
+* `qml_model.py` / `qnn_model.py` — PennyLane quantum / hybrid models
+* `test_all_models.py` — basic unit tests
+* `mols_xx.jpg`, `assets/` — images used by the app
 
-## Install
+## Quick start
+
+### Option A — (Conda, recommended for RDKit)
+1. Create and activate environment:
 ```bash
-git clone https://github.com/vathsalyar04/ai-drug-discovery.git
-cd ai-drug-discovery
+conda create -n projecttt python=3.9 -y
+conda activate projecttt
+conda install -c conda-forge rdkit pandas numpy scikit-learn matplotlib seaborn pennylane -y
+# Install remaining packages via pip
 pip install -r requirements.txt
+```
 
-
-
-
-## ⚙️ Installation
-Clone the repository and install dependencies:
-
+### Option B — (pip only; may have trouble with RDKit)
 ```bash
-git clone https://github.com/vathsalyar04/ai-drug-discovery.git
-cd ai-drug-discovery
+python -m venv .venv
+source .venv/bin/activate   # or .venv\Scripts\activate on Windows
 pip install -r requirements.txt
+```
 
-## ▶️ Installation
+### Run the Streamlit app
+```bash
+streamlit run app.py
+```
 
-Run the app:
+### Run tests
+```bash
+pytest -q
+```
 
-python app.py
+## Dataset
+The dataset used in development is not uploaded here and was sourced from Kaggle: [Big Molecules SMILES Dataset](https://www.kaggle.com/datasets/yanmaksi/big-molecules-smiles-dataset).
 
-
-Run all model tests:
-
-python test_all_models.py
-
-📊 Dataset
-
-Source: Big Molecules SMILES Dataset
-
-Format: CSV file containing SMILES chemical representations.
-
-🤝 Contributing
-
-Pull requests are welcome! For significant changes, please open an issue first to discuss your ideas.
-
-📜 License
-
-No license selected — all rights reserved by default.
+## License
+Currently no license selected (all rights reserved).
